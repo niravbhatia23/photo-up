@@ -26,6 +26,5 @@ Running
 Important Files
 ================
 
-```photoupweb/static/imageuploader.js```
-
-This file contains the code to make all of the above features possible.
+* photoupweb/static/imageuploader.js
+*   This file contains the code to make all of the above features possible.
