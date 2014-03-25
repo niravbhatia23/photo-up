@@ -27,4 +27,4 @@ Important Files
 ================
 
 * photoupweb/static/imageuploader.js
-*   This file contains the code to make all of the above features possible.
+  > This file contains the code to make all of the above features possible.
