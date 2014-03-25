@@ -1,3 +1,14 @@
 #image_chooser, #upload_images {
 	display: none;
 }
+
+#main{
+	float:none;
+	margin: 0 auto;
+}
+
+#preview-space{
+	margin-top:10px;
+	height:500px;
+	overflow:auto;
+}

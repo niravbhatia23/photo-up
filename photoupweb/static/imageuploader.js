@@ -32,7 +32,7 @@ if (window.FormData && window.FileReader && window.FileList) {
 					var tr = $("<tr></tr>");
 					var td = $("<td></td>");
 					var td2 = $("<td></td>");
-					var removeButton = $("<button>Remove</button>");
+					var removeButton = $('<button class="btn btn-xs">Remove</button>');
 					removeButton.on('click', function(evt) {
 						var images = $("#img_previews").find('.preview-img');
 						var image = $(this).parent().prev().find('img');
