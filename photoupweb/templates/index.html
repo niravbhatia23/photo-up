@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" href="{% static "style.css" %}" type="text/css"/>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="{% static "jquery.cookie.js" %}"></script>
+		<script type="text/javascript" src="{% static "imageuploader.js" %}"></script>
+	</head>
+	<body>
+		<input id="image_chooser" type="file" name="images[]" multiple/>
+		<button id="choose_images">
+			Select Images
+		</button>
+		<button id="upload_images">
+			Upload Images
+		</button>
+		<table id="img_previews">
+
+		</table>
+	</body>
+</html>
