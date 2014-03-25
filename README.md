@@ -14,5 +14,4 @@ Running
 
 1. Download the code and un-archive it
 2. cd into the directory
-
-    python manage.py runserver
+3. ```python manage.py runserver```
