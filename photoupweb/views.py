@@ -10,9 +10,6 @@ def index(request):
 
 def upload(request):
     val = request.FILES['image']
-    handle_uploaded_file(val)
+    default_storage.save(os.path.join(settings.MEDIA_ROOT, val.name), ContentFile(val.read()))
     return HttpResponse("OK")
-
-def handle_uploaded_file(f):
-    default_storage.save(os.path.join(settings.MEDIA_ROOT, f.name), ContentFile(f.read()))
 

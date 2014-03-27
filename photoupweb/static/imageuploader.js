@@ -1,9 +1,10 @@
 if (window.FormData && window.FileReader && window.FileList) {
 	var chosenFiles = [];
 
-	function ChosenFile(dataUrl, file) {
+	function ChosenFile(dataUrl, file, imgNode) {
 		this.dataUrl = dataUrl;
 		this.file = file;
+		this.imgNode = imgNode;
 		this.include = true;
 	}
 
@@ -52,7 +53,7 @@ if (window.FormData && window.FileReader && window.FileList) {
 					tr.append(td);
 					tr.append(td2);
 					$("#img_previews").append(tr);
-					chosenFiles.push(new ChosenFile(ev.target.result, this.file));
+					chosenFiles.push(new ChosenFile(ev.target.result, this.file, imgNode));
 				};
 				reader.readAsDataURL(f);
 			}
@@ -64,7 +65,31 @@ if (window.FormData && window.FileReader && window.FileList) {
 					var formData = new FormData();
 					formData.append('image', chosenFiles[i].file);
 					var request = new XMLHttpRequest();
+					/*var updateProgress = function(oEvent){
+						if (oEvent.lengthComputable) {
+							var percentComplete = oEvent.loaded / oEvent.total;
+							$(chosenFiles[i].imgNode.parent().after('<td>'+percentComplete+'</td>'));
+						  } else {
+							// Unable to compute progress information since the total size is unknown
+						  }
+					};
+					request.addEventListener("progress", updateProgress, false);*/
+					request.chosenFile = chosenFiles[i];
+					request.upload.onprogress = function(e) {
+						if (e.lengthComputable) {
+						  var pVal = (e.loaded / e.total) * 100;
+						  this.chosenFile.imgNode.parent().next().find('progress').val(pVal);
+						}
+						else{
+							alert("not lengthComputable");
+						}
+					};
+					
 					request.open("POST", "/upload/", true);
+					
+					
+
+					
 					request.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
 					request.send(formData);
 				}
