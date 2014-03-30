@@ -38,6 +38,9 @@ INSTALLED_APPS = (
     # everything else...
     'photoupweb',
 )
+
+MEDIA_ROOT = '/some/path' # This is only if you don't have anything for your MEDIA_ROOT setting
+
 ```
 
 Add these lines to your urls.py:
