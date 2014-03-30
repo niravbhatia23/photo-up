@@ -79,7 +79,7 @@ if (window.FormData && window.FileReader && window.FileList) {
 							//this.upload.chosenFile.imgNode.parent().parent().fadeOut();
 						}
 					};
-					request.open("POST", "/upload/", true);
+					request.open("POST", "/photoup/upload/", true);
 					request.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
 					request.send(formData);
 				}

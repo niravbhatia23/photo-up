@@ -58,3 +58,4 @@ photoupweb/user_uploads/*
 # Django overall project settings
 photoup/
 manage.py
+db.sqlite3
