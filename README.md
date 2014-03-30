@@ -19,7 +19,7 @@ Installation Details
 ======================
 Download the latest release and un-archive it
 
-Copy the photoupweb folder in the root of your django project (where you have your manage.py)
+In the above, copy the photoupweb folder to the root of your django project (where you have your manage.py)
 
 Add the following lines to your settings.py:
 ```
