@@ -1,7 +1,7 @@
 photo-up
 ========
 
-A simple HTML5 based photo uploading app
+A simple HTML5 based photo uploading app for django projects
 
 > ## Features
 >
@@ -17,14 +17,7 @@ Prerequisites
 1. Python + Django installation
 2. A browser that has support for FileReader, FileList, FormData objects and XHR2
 
-Running
-===========
+Installation Details
+======================
 
-1. Download the code and un-archive it
-2. cd into the directory
-3. ```python manage.py runserver```
-
-Important Files
-================
-
-* photoupweb/static/imageuploader.js
+Coming soon!
