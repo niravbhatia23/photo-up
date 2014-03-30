@@ -22,15 +22,15 @@ Download the latest release and un-archive it
 
 In the above, copy the photoupweb folder to the root of your django project (where you have your manage.py)
 
-Add the following lines to your settings.py:
+Make the following changes in your settings.py:
 ```
-MEDIA_ROOT = os.path.join(BASE_DIR, 'photoupweb', 'user_uploads')
-
 TEMPLATE_DIRS = (
+    # everything else...
     os.path.join(BASE_DIR, 'photoupweb', 'templates')
 )
 
 STATICFILES_DIRS = (
+    # everything else...
     os.path.join(BASE_DIR, 'photoupweb', 'static'),
 )
 
@@ -54,3 +54,7 @@ python manage.py syncdb
 ```
 
 That's it! When you run your django project, you can access the photo uploader at /photoup/
+
+Documentation
+==============
+Coming soon!
