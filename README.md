@@ -78,4 +78,4 @@ Notes
 ==============
 * Uploaded photos are stored in a 'photoup' folder in the MEDIA_ROOT location.
 * For each uploaded photo, an instance of the PhotoUpload model is created.
-* To view an uploaded photo, use the url /photoup/<photo id>
+* To view an uploaded photo, use the url /photoup/some photo id
