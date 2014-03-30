@@ -39,8 +39,11 @@ INSTALLED_APPS = (
     'photoupweb',
 )
 
-MEDIA_ROOT = '/some/path' # This is only if you don't have anything for your MEDIA_ROOT setting
+# If you don't have MEDIA_URL and MEDIA_ROOT settings already
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,...) 
 ```
 
 Add this to your urls.py:
@@ -48,7 +51,20 @@ Add this to your urls.py:
 urlpatterns += patterns('photoupweb.views',
     url(r'^photoup/$', 'index'),
     url(r'^photoup/upload/$', 'upload'),
+    url(r'^photoup/view/(?P<photo_id>\d+)/$','view_photo')
 )
+```
+
+If you also want to be able to view uploaded photos in DEBUG mode, you can also add
+this to urls.py
+```
+# Add these at the top with other import statements
+from django.conf import settings
+from django.conf.urls.static import static
+
+# Add this at the end
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
 Run syncdb:
@@ -62,3 +78,4 @@ Notes
 ==============
 * Uploaded photos are stored in a 'photoup' folder in the MEDIA_ROOT location.
 * For each uploaded photo, an instance of the PhotoUpload model is created.
+* To view an uploaded photo, use the url /photoup/<photo id>

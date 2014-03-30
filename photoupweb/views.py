@@ -13,3 +13,6 @@ def upload(request):
         return HttpResponse('FAIL')
     return HttpResponse('OK')
 
+def view_photo(request, photo_id):
+    p = PhotoUpload.objects.get(pk=photo_id)
+    return render(request, 'view_photo.html', {'photo':p})
