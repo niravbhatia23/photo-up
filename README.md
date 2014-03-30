@@ -57,4 +57,5 @@ That's it! When you run your django project, you can access the photo uploader a
 
 Notes
 ==============
-* Right now, uploaded photos are moved to the location specified in the MEDIA_ROOT setting.
+* Uploaded photos are moved to a photoup folder in the location specified in the MEDIA_ROOT setting.
+* For each uploaded photo, an instance of the PhotoUpload model is created.
