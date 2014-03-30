@@ -43,7 +43,7 @@ MEDIA_ROOT = '/some/path' # This is only if you don't have anything for your MED
 
 ```
 
-Add these lines to your urls.py:
+Add this to your urls.py:
 ```
 urlpatterns += patterns('photoupweb.views',
     url(r'^photoup/$', 'index'),
