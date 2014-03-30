@@ -30,4 +30,17 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'photoupweb', 'static'),
 )
+
+INSTALLED_APPS = (
+    # everything else...
+    'photoupweb',
+)
+
+```
+4. Add these lines to your urls.py:
+```
+urlpatterns += patterns('photoupweb.views',
+    url(r'^photoup/$', 'index'),
+    url(r'^photoup/upload/$', 'upload'),
+)
 ```
