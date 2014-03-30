@@ -20,7 +20,7 @@ Installation Details
 1. Download the latest release and un-archive it
 2. Copy the photoupweb folder in the root of your django project (where you have your manage.py)
 3. Add the following lines to your settings.py:
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'photoupweb', 'user_uploads')
+4. ```MEDIA_ROOT = os.path.join(BASE_DIR, 'photoupweb', 'user_uploads')
 
     TEMPLATE_DIRS = (
         os.path.join(BASE_DIR, 'photoupweb', 'templates')
@@ -33,18 +33,4 @@ Installation Details
     INSTALLED_APPS = (
         # everything else...
         'photoupweb',
-    )
-
-```
-4. Add these lines to your urls.py:
-```
-urlpatterns += patterns('photoupweb.views',
-    url(r'^photoup/$', 'index'),
-    url(r'^photoup/upload/$', 'upload'),
-)
-```
-5. Run syncdb
-```
-python manage.py syncdb
-```
-6. That's it! When you run the app, you can access the photo uploader at /photoup/
+    )```
