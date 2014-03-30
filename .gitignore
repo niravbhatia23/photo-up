@@ -54,3 +54,7 @@ docs/_build/
 
 # User uploaded photos
 photoupweb/user_uploads/*
+
+# Django overall project settings
+photoup/
+manage.py
