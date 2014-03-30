@@ -1,6 +1,5 @@
 if (window.FormData && window.FileReader && window.FileList) {
 	var chosenFiles = [];
-
 	function ChosenFile(dataUrl, file, imgNode) {
 		this.dataUrl = dataUrl;
 		this.file = file;
@@ -33,10 +32,11 @@ if (window.FormData && window.FileReader && window.FileList) {
 					var tr = $("<tr></tr>");
 					var td = $("<td></td>");
 					var td2 = $("<td></td>");
-					var removeButton = $('<button class="btn btn-xs">Remove</button>');
+					var tdProg = $('<td><progress min="0" max="100" value="0" id="progress"></progress></td>');
+					var removeButton = $('<button class="btn btn-xs rem-button">Remove</button>');
 					removeButton.on('click', function(evt) {
 						var images = $("#img_previews").find('.preview-img');
-						var image = $(this).parent().prev().find('img');
+						var image = $(this).parent().prev().prev().find('img');
 						for ( k = 0; k < images.length; k++) {
 							if ($(image).attr('src') == chosenFiles[k].dataUrl) {
 								chosenFiles[k].include = false;
@@ -51,6 +51,7 @@ if (window.FormData && window.FileReader && window.FileList) {
 					td.append(imgNode);
 					td2.append(removeButton);
 					tr.append(td);
+					tr.append(tdProg);
 					tr.append(td2);
 					$("#img_previews").append(tr);
 					chosenFiles.push(new ChosenFile(ev.target.result, this.file, imgNode));
@@ -60,36 +61,25 @@ if (window.FormData && window.FileReader && window.FileList) {
 		});
 
 		$("#upload_images").on('click', function() {
+			$('.rem-button').hide();
 			for ( i = 0; i < chosenFiles.length; i++) {
 				if (chosenFiles[i].include) {
 					var formData = new FormData();
 					formData.append('image', chosenFiles[i].file);
 					var request = new XMLHttpRequest();
-					/*var updateProgress = function(oEvent){
-						if (oEvent.lengthComputable) {
-							var percentComplete = oEvent.loaded / oEvent.total;
-							$(chosenFiles[i].imgNode.parent().after('<td>'+percentComplete+'</td>'));
-						  } else {
-							// Unable to compute progress information since the total size is unknown
-						  }
+					request.upload.chosenFile = chosenFiles[i];
+					request.upload.onprogress = function(uploadEv) {
+						var pVal = (uploadEv.loaded / uploadEv.total) * 100;
+						this.chosenFile.imgNode.parent().next().find('progress').val(pVal);
 					};
-					request.addEventListener("progress", updateProgress, false);*/
-					request.chosenFile = chosenFiles[i];
-					request.upload.onprogress = function(e) {
-						if (e.lengthComputable) {
-						  var pVal = (e.loaded / e.total) * 100;
-						  this.chosenFile.imgNode.parent().next().find('progress').val(pVal);
-						}
-						else{
-							alert("not lengthComputable");
+					request.onreadystatechange = function() {
+						if( this.readyState === 4 ) {
+							this.upload.chosenFile.include = false;
+							var linkTd = $("<td></td>");
+							//this.upload.chosenFile.imgNode.parent().parent().fadeOut();
 						}
 					};
-					
 					request.open("POST", "/upload/", true);
-					
-					
-
-					
 					request.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
 					request.send(formData);
 				}
