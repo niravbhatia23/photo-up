@@ -55,6 +55,6 @@ python manage.py syncdb
 
 That's it! When you run your django project, you can access the photo uploader at /photoup/
 
-Documentation
+Notes
 ==============
-Coming soon!
+* By default, uploaded photos are moved to the location pointed to by the MEDIA_ROOT setting
