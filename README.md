@@ -7,8 +7,9 @@ A simple HTML5 based photo uploading app
 >
 > 1. Select multiple photos to upload
 > 2. See a preview of the selected photos
-> 2. Remove selected photos
-> 3. Upload photos via AJAX
+> 3. Remove selected photos
+> 4. Upload photos via AJAX
+> 5. View upload progress
 
 Prerequisites
 ==============
