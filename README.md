@@ -13,9 +13,10 @@ A simple HTML5 based photo uploading app for django projects
 Prerequisites
 ==============
 1. Python + Django installation
-2. A browser that has support for FileReader, FileList, FormData objects and XHR2
+2. An existing Django project
+3. A browser that has support for FileReader, FileList, FormData objects and XHR2
 
-Installation Details
+Installation
 ======================
 Download the latest release and un-archive it
 
@@ -52,4 +53,4 @@ Run syncdb:
 python manage.py syncdb
 ```
 
-That's it! When you run the app, you can access the photo uploader at /photoup/
+That's it! When you run your django project, you can access the photo uploader at /photoup/
