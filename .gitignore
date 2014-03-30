@@ -55,7 +55,7 @@ docs/_build/
 # User uploaded photos
 photoupweb/user_uploads/*
 
-# Django overall project settings
+# Nirav's local django project non-photoupweb stuff
 photoup/
 manage.py
 db.sqlite3
