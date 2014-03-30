@@ -57,4 +57,4 @@ That's it! When you run your django project, you can access the photo uploader a
 
 Notes
 ==============
-* By default, uploaded photos are moved to the location pointed to by the MEDIA_ROOT setting
+* Right now, uploaded photos are moved to the location specified in the MEDIA_ROOT setting.
