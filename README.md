@@ -25,18 +25,18 @@ Add the following lines to your settings.py:
 ```
 MEDIA_ROOT = os.path.join(BASE_DIR, 'photoupweb', 'user_uploads')
 
-    TEMPLATE_DIRS = (
-        os.path.join(BASE_DIR, 'photoupweb', 'templates')
-    )
-    
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'photoupweb', 'static'),
-    )
-    
-    INSTALLED_APPS = (
-        # everything else...
-        'photoupweb',
-    )
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'photoupweb', 'templates')
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'photoupweb', 'static'),
+)
+
+INSTALLED_APPS = (
+    # everything else...
+    'photoupweb',
+)
 ```
 
 Add these lines to your urls.py:
