@@ -1,6 +1,6 @@
 photo-up
 ========
-A simple HTML5 based photo uploading app for django projects
+An HTML5 based photo uploading app for django projects
 
 > ## Features
 >
