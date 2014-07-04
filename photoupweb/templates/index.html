@@ -4,6 +4,8 @@
 
 {% block content %}
 
+<input type="hidden" value="{{ csrf_token }}"/>
+
 <h2>Upload Photos</h2>
 <div id="uploader-space">
 	<input id="image_chooser" type="file" name="images[]" multiple/>

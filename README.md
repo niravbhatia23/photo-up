@@ -13,8 +13,9 @@ An HTML5 based photo uploading app for django projects
 Prerequisites
 ==============
 1. Python + Django installation
-2. An existing Django project
-3. A browser that has support for FileReader, FileList, FormData objects and XHR2
+2. <a href="https://github.com/python-pillow/Pillow">Pillow</a> module installed
+3. An existing Django project
+4. A browser that has support for FileReader, FileList, FormData objects and XHR2
 
 Installation
 ======================
