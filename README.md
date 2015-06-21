@@ -65,7 +65,6 @@ Installation
     # Add these at the top with other import statements (if you don't have them already)
     from django.conf import settings
     from django.conf.urls.static import static
-    from django.conf.urls import patterns
 
     # Add this at the end
     if settings.DEBUG:
