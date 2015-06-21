@@ -19,61 +19,66 @@ Prerequisites
 
 Installation
 ======================
-Download the latest release and un-archive it
+1. Download the latest release and un-archive it
+2. In the above, copy the photoupweb folder to the root of your django project (where you have your manage.py)
+3. Make the following changes in your settings.py:
 
-In the above, copy the photoupweb folder to the root of your django project (where you have your manage.py)
+   ```
+    TEMPLATE_DIRS = (
+        # everything else...
+        os.path.join(BASE_DIR, 'photoupweb', 'templates')
+    )
 
-Make the following changes in your settings.py:
-```
-TEMPLATE_DIRS = (
-    # everything else...
-    os.path.join(BASE_DIR, 'photoupweb', 'templates')
-)
+    STATICFILES_DIRS = (
+        # everything else...
+        os.path.join(BASE_DIR, 'photoupweb', 'static'),
+    )
 
-STATICFILES_DIRS = (
-    # everything else...
-    os.path.join(BASE_DIR, 'photoupweb', 'static'),
-)
+    INSTALLED_APPS = (
+        # everything else...
+        'photoupweb',
+    )
+    
+    # If you don't have MEDIA_URL and MEDIA_ROOT settings already
+    
+    MEDIA_URL = '/media/'
+    
+    MEDIA_ROOT = os.path.join(BASE_DIR,...) 
+   ```
 
-INSTALLED_APPS = (
-    # everything else...
-    'photoupweb',
-)
+4. Make the following changes in urls.py:
 
-# If you don't have MEDIA_URL and MEDIA_ROOT settings already
-
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR,...) 
-```
-
-Add this to your urls.py:
-```
-urlpatterns += patterns('photoupweb.views',
+   ```
+    # Add this at the top with the other import statements (if you don't have it already)
+    from django.conf.urls import patterns
+   
+    urlpatterns += patterns('photoupweb.views',
     url(r'^photoup/$', 'index'),
     url(r'^photoup/upload/$', 'upload'),
     url(r'^photoup/view/(?P<photo_id>\d+)/$','view_photo')
-)
-```
+    )
+   ```
 
-If you also want to be able to view uploaded photos in DEBUG mode, you can also add
-this to urls.py
-```
-# Add these at the top with other import statements
-from django.conf import settings
-from django.conf.urls.static import static
+5. If you also want to be able to view uploaded photos in DEBUG mode, you can also add this to urls.py
 
-# Add this at the end
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-```
+   ```
+    # Add these at the top with other import statements (if you don't have them already)
+    from django.conf import settings
+    from django.conf.urls.static import static
+    from django.conf.urls import patterns
 
-Run syncdb:
-```
-python manage.py syncdb
-```
+    # Add this at the end
+    if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+   ```
 
-That's it! When you run your django project, you can access the photo uploader at /photoup/
+6. Run migrate:
+
+   ```
+    python manage.py migrate
+   ```
+
+7. That's it! When you run your django project, you can access the photo uploader at /photoup/
 
 Notes
 ==============
