@@ -2,7 +2,7 @@ About
 ======
 photo-up is a photo uploading app for [Django](https://www.djangoproject.com/) projects. It utilizes HTML5's [FileReader](https://developer.mozilla.org/en-US/docs/Web/API/FileReader), [FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList), and [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) APIs to accomplish the choosing, uploading, and upload progress tracking of photos on the frontend. 
 
-The purpose of this project is to explore a purely JavaScript based mechanism for uploading files.
+The purpose of this project is to explore and provide a purely JavaScript based mechanism for uploading files.
 
 Features
 ========
