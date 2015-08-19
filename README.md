@@ -6,11 +6,11 @@ The purpose of this project is to explore and provide a purely JavaScript based 
 
 Features
 ========
-1. Select multiple photos to upload
-2. See a preview of the selected photos
-3. Remove selected photos
-4. Upload photos via AJAX
-5. View upload progress
+* Select multiple photos to upload
+* See a preview of the selected photos
+* Remove selected photos
+* Upload photos via AJAX
+* View upload progress
 
 Prerequisites
 ==============
